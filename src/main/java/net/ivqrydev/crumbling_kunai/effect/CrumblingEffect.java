@@ -18,6 +18,7 @@ public class CrumblingEffect extends MobEffect {
         super(category, color);
     }
 
+    //Fetch config options, multiply defense stat by a negative decimal, then add that new value onto the original defense stat.
     @Override
     public void addAttributeModifiers(AttributeMap attributeMap, int amplifier) {
         AttributeInstance instance = attributeMap.getInstance(Attributes.ARMOR);
