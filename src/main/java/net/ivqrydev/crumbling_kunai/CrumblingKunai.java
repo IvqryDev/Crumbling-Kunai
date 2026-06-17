@@ -1,0 +1,14 @@
+package net.ivqrydev.crumbling_kunai;
+
+import net.ivqrydev.crumbling_kunai.config.ModConfig;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+
+@Mod(CrumblingKunai.MOD_ID)
+public class CrumblingKunai {
+    public static final String MOD_ID = "valcon";
+
+    public CrumblingKunai(ModContainer container) {
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, ModConfig.SPEC);
+    }
+}
