@@ -1,4 +1,4 @@
 {
-  "sounds.crumbling_kunai.refresh": "Kunai Refreshes",
-  "effect.crumbling_kunai.effect": "Crumbling"
+  "sounds.crumbling_kunai:refresh": "Kunai Refreshes",
+  "effect.crumbling_kunai.crumbling": "Crumbling"
 }
