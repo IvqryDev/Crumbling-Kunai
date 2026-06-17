@@ -1,6 +1,8 @@
 package net.ivqrydev.crumbling_kunai;
 
 import net.ivqrydev.crumbling_kunai.config.ModConfig;
+import net.ivqrydev.crumbling_kunai.sound.ModSounds;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 
@@ -10,5 +12,9 @@ public class CrumblingKunai {
 
     public CrumblingKunai(ModContainer container) {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, ModConfig.SPEC);
+    }
+    public CrumblingKunai(IEventBus modEventBus) {
+
+        ModSounds.register(modEventBus);
     }
 }
