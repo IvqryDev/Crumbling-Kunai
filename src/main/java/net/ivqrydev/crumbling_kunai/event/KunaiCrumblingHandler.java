@@ -13,7 +13,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 
-@EventBusSubscriber(modid = "valcon")
+@EventBusSubscriber(modid = "crumbling_kunai")
 public class KunaiCrumblingHandler {
 
     private static final ResourceLocation KUNAI_ENTITY_TYPE =
