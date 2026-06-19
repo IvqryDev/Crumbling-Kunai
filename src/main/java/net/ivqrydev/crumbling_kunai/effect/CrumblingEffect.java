@@ -1,9 +1,12 @@
 package net.ivqrydev.crumbling_kunai.effect;
 
-import net.ivqrydev.crumbling_kunai.config.ModConfig;
+import net.ivqrydev.crumbling_kunai.config.CrumblingKunaiConfig;
+import net.ivqrydev.crumbling_kunai.particle.ModParticles;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -18,7 +21,29 @@ public class CrumblingEffect extends MobEffect {
         super(category, color);
     }
 
-    //Fetch config options, multiply defense stat by a negative decimal, then add that new value onto the original defense stat.
+    @Override
+    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
+        if (CrumblingKunaiConfig.CRUMBLING_PARTICLES.get() && entity.level() instanceof ServerLevel serverLevel) {
+            double width = entity.getBbWidth();
+            double height = entity.getBbHeight();
+
+            serverLevel.sendParticles(
+                    ModParticles.CRUMBLING_DUST.get(),
+                    entity.getX(), entity.getY() + height * 0.5, entity.getZ(),
+                    2,
+                    width * 0.4, height * 0.3, width * 0.4,
+                    0.0
+            );
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean shouldApplyEffectTickThisTick(int tickCount, int amplifier) {
+        return tickCount % 5 == 0;
+    }
+
     @Override
     public void addAttributeModifiers(AttributeMap attributeMap, int amplifier) {
         AttributeInstance instance = attributeMap.getInstance(Attributes.ARMOR);
@@ -26,7 +51,7 @@ public class CrumblingEffect extends MobEffect {
             instance.removeModifier(MODIFIER_ID);
             instance.addOrReplacePermanentModifier(new AttributeModifier(
                     MODIFIER_ID,
-                    -ModConfig.ARMOR_REDUCTION.get(),
+                    -CrumblingKunaiConfig.ARMOR_REDUCTION.get(),
                     AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
             ));
         }

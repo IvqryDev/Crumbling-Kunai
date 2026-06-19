@@ -12,7 +12,6 @@ public class ModEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS =
             DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, CrumblingKunai.MOD_ID);
 
-
     public static final Holder<MobEffect> CRUMBLING_EFFECT = MOB_EFFECTS.register("crumbling",
             () -> new CrumblingEffect(MobEffectCategory.HARMFUL, 0x28283E));
 
