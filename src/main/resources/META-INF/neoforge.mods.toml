@@ -4,24 +4,24 @@ license="LGPL-3.0"
 
 [[mods]]
 modId="crumbling_kunai"
-version="1.0"
+version="1.2"
 logoFile = "logo.png"
 displayName="Crumbling Kunai"
 authors = "IvqryDev"
 description='''
-A simple and configurable mod that adds defense reducing effects to the kunai from Caverns and Chasms.
+A simple and HIGHLY configurable mod that adds a new defense reducing effect to the kunai from Caverns and Chasms and whatever mob or projectile you want!
 '''
 
 [[dependencies.crumbling_kunai]]
 modId="caverns_and_chasms"
-type="required"
+type="optional"
 versionRange="*"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.crumbling_kunai]]
 modId="blueprint"
-type="required"
+type="optional"
 versionRange="*"
 ordering="AFTER"
 side="BOTH"
